@@ -23,9 +23,12 @@ uvicorn app.main:app --reload
 ```
 http://127.0.0.1:8000/graphql
 ```
+6. To run the testing:
+```
+pytest
+```
 
-
-# Queries
+# Example queries
 1. Get all API data:
 ```
 query {

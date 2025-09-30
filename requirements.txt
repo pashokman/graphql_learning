@@ -2,3 +2,9 @@ fastapi
 uvicorn
 sqlmodel
 strawberry-graphql[fastapi]
+
+pytest
+requests
+faker
+pytest-xdist
+pytest-rerunfailures
