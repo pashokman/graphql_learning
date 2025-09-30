@@ -55,7 +55,7 @@ query {
 
 2. Get all users:
 ```
-{
+query {
   allUsers {
     id
     email
@@ -123,7 +123,7 @@ mutation {
 
 6. To get all all houses, garages and cars of user with id = 1:
 ```
-{
+query {
   user(id:1){
     email
     houses{
@@ -139,5 +139,64 @@ mutation {
       }
     }
   }
+}
+```
+
+7. To get few same type objects we should assign names for each object (like Alex and Bod for user objects):
+```
+query {
+  Alex: user(id: 1){
+    id,
+    email
+  }
+  Bob: user(id: 2){
+    id,
+    email,
+    isActive
+  }
+}
+```
+
+8. To change alias of the result object field we should (response will return `user_id: 1`):
+```
+query {
+  Alex: user(id: 1){
+    user_id: id,
+    email
+  }
+}
+```
+
+9. To get few same type objects with the same fields in compact form we should use fragment:
+```
+query {
+  Alex: user(id: 1){
+    ...UserInfo
+  }
+  Bob: user(id: 2){
+		...UserInfo
+  }
+}
+
+fragment UserInfo on UserType {
+  id,
+  email,
+  isActive
+}
+```
+
+10. To use a variable we should use `$` sign:
+```
+query getUserByID ($id: Int!) {
+  user (id: $id) {
+    email,
+    isActive
+  }
+}
+```
+We also should assign `id` variable in Variables section:
+```
+{
+  "id": 1
 }
 ```
