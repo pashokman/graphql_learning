@@ -23,7 +23,7 @@ uvicorn app.main:app --reload
 ```
 http://127.0.0.1:8000/graphql
 ```
-6. To run the testing:
+6. To run the testing, open new terminal and run the command:
 ```
 pytest
 ```
